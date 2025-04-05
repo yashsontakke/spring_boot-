@@ -16,6 +16,7 @@ public class EmployeeInvocationHandler implements InvocationHandler {
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 		// TODO Auto-generated method stub
 		
+		// pre processing 
 		if(method.getName().equals("giveHike")) {
 			double hikeValue = (double) args[0];
 			if(hikeValue<=0.0) {
@@ -25,6 +26,8 @@ public class EmployeeInvocationHandler implements InvocationHandler {
 		}
 			
 		Object returnValueObject = method.invoke(itEmployee, args);
+		
+		// post processing 
 		
 		System.out.println(returnValueObject);
 		
